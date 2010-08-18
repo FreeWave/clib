@@ -21,7 +21,9 @@
 
 #include <stdio.h>
 
-int main ()
-{
-     printf("First test :)");
+#include "SList.h"
+
+int main (int argc, char *argv[])
+{     
+     return 0;
 }

@@ -17,9 +17,11 @@ else
 	endif
 endif
 
-CFLAGS := -g -Wall $(ARCH_FLAGS)
-SRC_FILES := $(wildcard *.c)
-OBJ_FILES := $(SRC_FILES:%.c=%.o)
+HFILES = SList.h 
+CFILES = SList.c clib.c
+CFLAGS := -g -Wall $(ARCH_FLAGS) 
+SRC_FILES := $(HFILES)$(CFILES)
+OBJ_FILES :=  clib.o SList.o ##(SRC_FILES:%.c=%.o)
 
 MY_DIRNAME = /usr/local/include/clib/
 
@@ -37,19 +39,19 @@ ifeq "" "$(INSTALL_PERMISSIONS)"
     INSTALL_PERMISSIONS = o+rX
 endif
 
-TARGET := clib
+TARGET = clib
 
 all: $(TARGET)
 
 $(TARGET): $(OBJ_FILES)
-	$(CC) $(CFLAGS) -g  -o $@ $< 
+	$(CC) -o $(TARGET) $(CFLAGS) $(OBJ_FILES) 
 
 %.o:%.c
 	$(CC) $(CFLAGS) -c -o $@ $< 
 
 install:
-	mkdir /usr/local/include/clib/
-	cp string.h /usr/local/include/clib/
+	mkdir -p /usr/local/include/clib
+	cp SList.h /usr/local/include/clib/
 	echo "Your clib is ready!"  
 
 installhdrs: 

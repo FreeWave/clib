@@ -19,6 +19,37 @@
  *   59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.             *
  ***************************************************************************/
 
-#include "string.h"
+#ifndef SLIST_H
+#define SLIST_H
 
+typedef struct _SList SList;
 
+struct _SList
+{
+     void* data;
+     SList* next;
+};
+
+SList* list_prepend(SList* list, void* data);
+
+SList* list_get_first(SList* list);
+
+int list_get_length( SList* list);
+
+void list_free(SList* list);
+
+SList* list_get_first(SList* list);
+
+SList* list_get_last(SList* list);
+
+void* list_get_n_data(SList* list, int n);
+
+SList* list_get_n_list(SList* list, int n);
+
+SList* list_get_first_data(SList* list);
+
+SList* list_get_last_data(SList* list);
+
+SList* list_append(SList* list, void* data);
+
+#endif
