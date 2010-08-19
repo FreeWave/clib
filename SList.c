@@ -95,13 +95,16 @@ SList* list_append(SList* list, void* data)
  *
  * Free memory for SList
  */
-void list_free(SList* list)
+SList* list_free(SList* list)
 {
-     while (list->next)
+     while (list != NULL)
      {
-	  free(list);
-	  list = list->next;
+	  SList* tmp = list;
+          list = list->next;
+	  free(tmp);
      }
+
+     return list;
 }
 
 /**
@@ -113,9 +116,6 @@ void list_free(SList* list)
  int list_get_length( SList* list)
 {
      int length = 0;
-
-     if (!list)
-	  return length;
      
      while (list)
      {
@@ -211,10 +211,7 @@ SList* list_get_last_data(SList* list)
  */
 short is_list_empty(SList* list)
 {
-     if (list_get_length(list) == 0)
-	  return 0;
-     else
-	  return 1;
+     return list ? 1 : 0;
 }
 
 /**

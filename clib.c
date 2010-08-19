@@ -20,17 +20,17 @@
  ***************************************************************************/
 
 #include <stdio.h>
+#include <stdlib.h>
 
 #include "SList.h"
 
 int main (int argc, char *argv[])
 {
      SList* list = NULL;
-
-     list = list_prepend(list, (void*)"DS");
-     list = list_prepend(list, (void*)"DDD");
      list = list_prepend(list, (void*)"ASD");
      list = list_prepend(list, (void*)"GSD");
+
+     list = list_free(list);
 
      return 0;
 }

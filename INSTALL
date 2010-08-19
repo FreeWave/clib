@@ -1,0 +1,21 @@
+Building
+--------
+
+You can build all of libavl or just one part.  Here are the commands
+to build a few interesting subsets:
+
+	* Everything: `make'.
+
+Installing
+----------
+
+clib is not intended to be installed as a shared library.  Instead,
+its source files are meant to be included in programs directly.	 A
+given program normally uses only one or two of libavl's tree
+structures.  Only the C source and header files for those structures
+need to be included.  Refer to the libavl manual for more information.
+
+As a result, there is no real "installation procedure" for clib.  If
+you like, you can install the test and demo programs in a convenient
+location, but it hard to imagine a practical use for them other than
+as tests and demonstrations.

@@ -21,7 +21,7 @@ HFILES = SList.h
 CFILES = SList.c clib.c
 CFLAGS := -g -Wall $(ARCH_FLAGS) 
 SRC_FILES := $(HFILES)$(CFILES)
-OBJ_FILES :=  clib.o SList.o ##(SRC_FILES:%.c=%.o)
+OBJ_FILES :=  clib.o SList.o DList.o
 
 MY_DIRNAME = /usr/local/include/clib/
 
@@ -48,14 +48,6 @@ $(TARGET): $(OBJ_FILES)
 
 %.o:%.c
 	$(CC) $(CFLAGS) -c -o $@ $< 
-
-install:
-	mkdir -p /usr/local/include/clib
-	cp SList.h /usr/local/include/clib/
-	echo "Your clib is ready!"  
-
-installhdrs: 
-	install
 
 clean:
 	rm -f $(OBJ_FILES) *~ $(TARGET)

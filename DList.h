@@ -19,49 +19,16 @@
  *   59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.             *
  ***************************************************************************/
 
-#ifndef SLIST_H
-#define SLIST_H
+#ifndef DLIST_H
+#define DLIST_H
 
-typedef struct _SList SList;
+typedef struct _DList DList;
 
-struct _SList
+struct _DList
 {
      void* data;
-     SList* next;
+     DList* next;
+     DList* prev;
 };
-
-SList* list_prepend(SList* list, void* data);
-
-SList* list_get_first(SList* list);
-
-int list_get_length( SList* list);
-
-SList* list_free(SList* list);
-
-SList* list_get_first(SList* list);
-
-SList* list_get_last(SList* list);
-
-void* list_get_n_data(SList* list, int n);
-
-SList* list_get_n_list(SList* list, int n);
-
-SList* list_get_first_data(SList* list);
-
-SList* list_get_last_data(SList* list);
-
-SList* list_append(SList* list, void* data);
-
-SList* insert_by_index(SList* list, int index, void* data);
-
-short is_list_empty(SList* list);
-
-void* list_to_int_array(SList* list, int* array);
-
-SList* list_find_element(SList* list, void* data);
-
-int   list_find_index(SList* list, void* data);
-
-SList* list_remove_element(SList* list, void* data);
-
+     
 #endif
