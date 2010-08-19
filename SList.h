@@ -52,4 +52,16 @@ SList* list_get_last_data(SList* list);
 
 SList* list_append(SList* list, void* data);
 
+SList* insert_by_index(SList* list, int index, void* data);
+
+short is_list_empty(SList* list);
+
+void* list_to_int_array(SList* list, int* array);
+
+SList* list_find_element(SList* list, void* data);
+
+int   list_find_index(SList* list, void* data);
+
+SList* list_remove_element(SList* list, void* data);
+
 #endif
