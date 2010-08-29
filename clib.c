@@ -23,14 +23,20 @@
 #include <stdlib.h>
 
 #include "SList.h"
+#include "DList.h"
 
 int main (int argc, char *argv[])
 {
-     SList* list = NULL;
-     list = list_prepend(list, (void*)"ASD");
-     list = list_prepend(list, (void*)"GSD");
+     DList* list = NULL;
+     list = dlist_append(list, (void*)"ASD");
+     list = dlist_append(list, (void*)"DSA");
+     list = dlist_prepend(list, (void*)"ASDD");
 
-     list = list_free(list);
+     list = dlist_insert_by_index(list,0, (void*)"DDD");
+
+     list = dlist_remove_element(list, (void*)"DSA");
+     
+     printf("%d", dlist_get_length(list)); 
 
      return 0;
 }

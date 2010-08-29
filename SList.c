@@ -286,27 +286,7 @@ void* list_to_int_array(SList* list, int* array)
      return array;
 }
 
-/**
- * list_find_element:
- * @list: a pointer to a #SList
- * @data: a pointer to a void
- *
- * Find element by data
- */
-SList* list_find_element(SList* list, void* data)
-{
-     while (list)
-     {
-	  if (list->data == data)
-	  {
-	       return list;
-	  }
-	  
-	  list = list->next;
-     }
 
-     return NULL;
-}
 
 /**
  * list_find_index:
@@ -337,7 +317,7 @@ int  list_find_index(SList* list, void* data)
  * @list: a pointer to a #SList
  * @data: a pointer to a void
  *
- * Find element by data
+ * Remove data element from SList
  */
 SList* list_remove_element(SList* list, void* data)
 {

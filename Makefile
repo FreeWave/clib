@@ -17,8 +17,8 @@ else
 	endif
 endif
 
-HFILES = SList.h 
-CFILES = SList.c clib.c
+HFILES = SList.h DList.h 
+CFILES = SList.c DList.c clib.c
 CFLAGS := -g -Wall $(ARCH_FLAGS) 
 SRC_FILES := $(HFILES)$(CFILES)
 OBJ_FILES :=  clib.o SList.o DList.o

@@ -22,6 +22,8 @@
 #ifndef DLIST_H
 #define DLIST_H
 
+#include <stdlib.h>
+
 typedef struct _DList DList;
 
 struct _DList
@@ -30,5 +32,35 @@ struct _DList
      DList* next;
      DList* prev;
 };
+
+DList* dlist_append(DList* list, void* data);
+
+DList* dlist_prepend(DList* list, void* data);
+
+DList* dlist_get_last(DList* list);
+
+DList* dlist_get_first(DList* list);
+
+uint   dlist_get_length(DList* list);
+
+DList* dlist_free(DList* list);
+
+short is_dlist_empty(DList* list);
+
+DList* dlist_get_last_data(DList* list);
+
+DList* dlist_get_first_data(DList* list);
+
+DList* dlist_get_n_list(DList* list, uint n);
+
+void* dlist_get_n_data(DList* list, uint n);
+
+DList* dlist_insert_by_index(DList* list, int index, void* data);
+
+DList* dlist_remove_element(DList* list, void* data);
+
+int  dlist_find_index(DList* list, void* data);
+
+DList* dlist_find_element(DList* list, void* data);
      
 #endif
